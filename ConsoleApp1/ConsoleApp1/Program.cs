@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ConsoleApp1
+namespace Simple_Atm
 {
     class Program
     {
@@ -9,7 +9,7 @@ namespace ConsoleApp1
         static void Main(string[] args)
         {
             Random random = new Random();
-            double randomBalance= random.Next(1, 100000);
+            double randomBalance = random.Next(1, 100000);
             double randomCvc = random.Next(100, 999);
 
 
@@ -18,11 +18,11 @@ namespace ConsoleApp1
                 BankName = "Kapital Bank",
                 Balance = randomBalance,
                 Pan = "5103071414532890",
-                Cvc=randomCvc.ToString(),
-                ExpireDate=new DateTime(2002,11,01),
-                FullName="Eliyev Emiraslan",
-                Pin="4230"
-                  
+                Cvc = randomCvc.ToString(),
+                ExpireDate = new DateTime(2002, 11, 01),
+                FullName = "Eliyev Emiraslan",
+                Pin = "4230"
+
             };
             Bankcard bankcard2 = new Bankcard
             {
@@ -42,7 +42,7 @@ namespace ConsoleApp1
                 surname = "Idayatov",
                 bankAccount = bankcard1,
                 salary = 1200.99
-               
+
             };
             Client client2 = new Client
             {
@@ -54,12 +54,12 @@ namespace ConsoleApp1
 
             };
             Bank bank1 = new Bank();
-            bank1.clients = new Client[2] { client1, client2 };
+            bank1.Clients = new Client[2] { client1, client2 };
             bank1.showCardBalance(bankcard1);
         }
     }
 }
-          
+
         
     
 
