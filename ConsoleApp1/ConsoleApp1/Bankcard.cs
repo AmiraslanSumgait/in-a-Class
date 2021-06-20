@@ -1,19 +1,35 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
-namespace ConsoleApp1
+namespace Simple_Atm
 {
-    class Bankcard
+    class Bank
     {
-        public string BankName { get; set; }
-        public string FullName { get; set; }
-        public string Pan { get; set; }
-        public string Pin { get; set; }
-        public string Cvc { get; set; }
-        public DateTime ExpireDate { get; set; }
-        public double Balance { get; set; }
+        public Client[] Clients { get; set; }
+        public void showCardBalance(Bankcard bankcard)
+        {
 
-
+            Console.WriteLine($"Bankcard Balance:{bankcard.Balance}");
+        }
+        public void AddClient(Client client)
+        {
+            Clients = Clients.Concat(new Client[] { client }).ToArray();
+        }
+        public void DeleteCLient(string name)
+        {
+            int clientCount = Clients.Length - 1;
+            Client[] clients = new Client[clientCount];
+            for (int i = 0; i < Clients.Length; i++)
+            {
+                if (Clients[i].name!= name)
+                {
+                    clients[i] = Clients[i];
+                }
+            }
+            Clients = clients;
+        }
     }
 }
